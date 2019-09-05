@@ -4353,7 +4353,6 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
   padding: 0 $gutter-site;
 
   @include media-query($small) {
-    border-bottom: 1px solid $color-border;
     padding: 0;
   }
 
@@ -5286,15 +5285,6 @@ $nav-button-padding: 15px;
   display: none;
   overflow: hidden;
   width: 100%;
-
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    border-bottom: 1px solid $color-border;
-  }
 
   &.js-menu--is-open {
     display: block;
