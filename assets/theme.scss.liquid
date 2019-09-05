@@ -3398,6 +3398,7 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
 .product-form__input {
   display: block;
   width: 100%;
+  border: none;
 
   &.input--error {
     margin-bottom: 0;
@@ -3444,6 +3445,9 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
 
   .product-form__item--payment-button & {
     margin-top: 10px;
+    @media (min-width: 750px) {
+      margin-top: 20px;
+    }
   }
 }
 

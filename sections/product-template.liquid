@@ -138,9 +138,11 @@
             {% unless product.has_only_default_variant %}
               {% for option in product.options_with_values %}
                 <div class="selector-wrapper js product-form__item">
+                  {% comment %}
                   <label {% if option.name == 'default' %}class="label--hidden" {% endif %}for="SingleOptionSelector-{{ forloop.index0 }}">
                     {{ option.name }}
                   </label>
+                  {% endcomment %}
                   <select class="single-option-selector single-option-selector-{{ section.id }} product-form__input" id="SingleOptionSelector-{{ forloop.index0 }}" data-index="option{{ forloop.index }}">
                     {% for value in option.values %}
                       <option value="{{ value | escape }}"{% if option.selected_value == value %} selected="selected"{% endif %}>{{ value }}</option>
@@ -221,9 +223,14 @@
           {{ product.description }}
         </div>
 
+        {% comment %}
+        !!!
+        This is commented out to remove the social sharing buttons
+        !!!
         {% if section.settings.show_share_buttons %}
           {% include 'social-sharing', share_title: product.title, share_permalink: product.url, share_image: product %}
         {% endif %}
+        {% endcomment %}
     </div>
   </div>
 </div>
@@ -237,6 +244,7 @@
 
 
 {% schema %}
+
 {
   "name": {
     "da": "Produktsider",
@@ -308,8 +316,7 @@
             "zh-CN": "小",
             "zh-TW": "小型"
           }
-        },
-        {
+        }, {
           "value": "medium",
           "label": {
             "da": "Medium",
@@ -332,8 +339,7 @@
             "zh-CN": "中等",
             "zh-TW": "中等"
           }
-        },
-        {
+        }, {
           "value": "large",
           "label": {
             "da": "Stor",
@@ -356,8 +362,7 @@
             "zh-CN": "大",
             "zh-TW": "大型"
           }
-        },
-        {
+        }, {
           "value": "full",
           "label": {
             "da": "Fuld bredde",
@@ -383,8 +388,7 @@
         }
       ],
       "default": "medium"
-    },
-    {
+    }, {
       "type": "checkbox",
       "id": "show_quantity_selector",
       "label": {
@@ -409,8 +413,7 @@
         "zh-TW": "顯示數量選擇器"
       },
       "default": false
-    },
-    {
+    }, {
       "type": "checkbox",
       "id": "show_variant_labels",
       "label": {
@@ -435,8 +438,7 @@
         "zh-TW": "顯示子類選項標籤"
       },
       "default": true
-    },
-    {
+    }, {
       "type": "checkbox",
       "id": "show_vendor",
       "label": {
@@ -461,8 +463,7 @@
         "zh-TW": "顯示廠商"
       },
       "default": false
-    },
-    {
+    }, {
       "type": "checkbox",
       "id": "enable_zoom",
       "label": {
@@ -487,8 +488,7 @@
         "zh-TW": "啟用圖片縮放"
       },
       "default": true
-    },
-    {
+    }, {
       "type": "checkbox",
       "id": "enable_payment_button",
       "label": {
@@ -534,8 +534,7 @@
         "zh-TW": "每位客戶都可以在您商店內開放使用的付款方式中看見他們偏好使用的方式，如 PayPal、Apple Pay 等。[深入瞭解相關資訊](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)"
       },
       "default": true
-    },
-    {
+    }, {
       "type": "checkbox",
       "id": "show_share_buttons",
       "label": {
@@ -563,4 +562,5 @@
     }
   ]
 }
+
 {% endschema %}
