@@ -29,7 +29,7 @@
     <img class="grid-view-item__image" src="{{ product.featured_image.src | img_url: image_size, scale: 2 }}" alt="{{ product.featured_image.alt }}" style="max-width: {{ max_height | times: product.featured_image.aspect_ratio }}px;">
   </noscript>
 
-  {% if page.url !== '/' %}
+  {% if template.name != "index" %}
     <div aria-hidden="true" class="h4 grid-view-item__title product-card__title">{{ product.title }}</div>
 
     {% include 'product-price', variant: product.selected_or_first_available_variant %}
