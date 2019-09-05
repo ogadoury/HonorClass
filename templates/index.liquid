@@ -1,1 +1,22 @@
 {{ content_for_index }}
+<!-- <div>
+  <h1>{{ collections["all-products"].title }}</h1>
+  <ul>
+    {% for product in collections.all-products.products %}
+      <li>{{ product.title }}</li>
+    {% endfor %}
+  </ul>
+</div> -->
+
+<div class="page-width" id="Collection">
+
+      <ul class="grid grid--uniform{% if collections["all-products"].products_count > 0 %} grid--view-items{% endif %}">
+        {% for product in collections["all-products"].products %}
+          <li class="grid__item grid__item--{{section.id}} medium-up--one-half">
+            {% include 'product-card-grid', max_height: 530 %}
+          </li>
+          {% endfor %}
+      </ul>
+
+  </div>
+</div>
